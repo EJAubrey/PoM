@@ -1,0 +1,49 @@
+#Import modules for statistics and graphing data
+
+from matplotlib import pyplot as plt
+import statistics
+
+#Set up arrays for creating graphs later
+counter = []
+number = []
+
+#Recursive function to loop through persistent multiplication steps for a given starting number n
+def mult(num, steps = 0):
+    if len(str(num)) == 1:
+        counter.append(steps)
+        return 'Done'
+    steps += 1
+    dig = [int(i) for i in str(num)]
+    result = 1
+    for n in dig:
+        result *= n
+
+    mult(result, steps)*
+
+#Track lowest number with current record of maximum number of steps over test range
+
+*maxcount = 0
+maxnum = 0*
+
+#Define array of individual % to track completion of calculations
+*per = [i*1000000 for i in range(100)]
+c = 0
+for i in range(100000000):
+    number.append(i)
+    mult(i)
+
+#Check record values and update if necessary
+    if counter[-1] > maxcount:
+        maxcount = counter[-1]
+        maxnum = number[-1]
+
+#Print out % milestones to monitor project completion (needed for >10^6)
+    if i in per:
+        print("{}% complete".format(c))
+        c += 1
+
+#Print mean
+print(statistics.mean(counter))
+
+#Plot number of steps
+plt.scatter(number, counter)
